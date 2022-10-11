@@ -45,13 +45,13 @@ exports.signin = async (req, res) => {
     const hashedPassword = getHashedPassword(password);
     await Users.findOne({phoneNo: req.body.phoneNo}).then(data => {
         if(data) {
-            if(data.password == hashedPassword) return res.send({ status: true, user: data });
-            else return res.send({ status: false, message: "Invalid Password. Try again!" });
+            if(data.password == hashedPassword) return res.send({ success: true, user: data });
+            else return res.send({ success: false, message: "Password is not valid!" });
         } else {
-            return res.send({ status: false, message: "This Phone is not Registerd!" });
+            return res.send({ success: false, message: "This Phone is not Registerd!" });
         }
     }).catch(error => {
-        res.send({ status: false, message: "Something was happened Error!" })
+        res.send({ success: false, message: "Something was happened Error!" })
     })
 
 
