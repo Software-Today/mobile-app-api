@@ -31,6 +31,7 @@ db.mongoose.connect(db.url, {
 
 require("./app/routes/tutorial.routes")(app);
 require("./app/routes/user.routes")(app);
+require("./app/routes/main.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 5000;

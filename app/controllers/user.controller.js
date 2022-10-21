@@ -53,8 +53,6 @@ exports.signin = async (req, res) => {
     }).catch(error => {
         res.send({ success: false, message: "Something was happened Error!" })
     })
-
-
 }
 
 const getHashedPassword = (password) => {
